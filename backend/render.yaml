@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: newsletter-backend
+    runtime: node
+    plan: free
+    region: oregon
+    
+    buildCommand: "npm install"
+    startCommand: "node server.js"
+
+    envVars:
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: DATABASE_PATH
+        value: "./newsletter.db"
+      - key: CLIENT_URL
+        value: "http://localhost:5173"
